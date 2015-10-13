@@ -1,0 +1,35 @@
+<div ng-controller = 'userController'>
+	<div class = 'container' style='margin-top:20px;'>
+		<div class = 'col-xs-9'>
+			<p>Welcome {{session.name}}</p>
+		</div>
+		<div class = 'col-xs-3'>
+			<form class = 'pull-right'>
+				<input type = 'submit' ng-click = 'new_poll()' value = "Create a New Poll">
+				<input type = 'submit' ng-click = 'logout()' value = 'logout'>
+			</form>
+		</div>
+		<div class = 'container'>
+			<p class='pull-left'>Current Polls:</p>
+      <p class='pull-right'>Search: <input type="text" ng-model="filter_name"/></p>
+			<table class = 'table table-borderd'>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Survey Question</th>
+						<th>Date Posted</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat = 'polll in polls | filter: filter_name'>
+						<td>{{polll.name}}</td>
+						<td><a href="#/poll/{{polll._id}}">{{polll.question}}</a></td>
+						<td>{{polll.created_at | date: "mediumDate"}}</td>
+						<td><button class = ' btn btn-danger pull-right' ng-if = "session.name == polll.name" ng-click = 'delete(polll)'> Delete</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

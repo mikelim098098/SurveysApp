@@ -1,0 +1,56 @@
+<div ng-controller = 'userController'>
+	<div class = 'container'>
+		<div class = 'row'>
+			<button class = 'pull-right'  ng-click = 'home()'>Go to Polls</button>
+		</div>
+		<h3>{{poll_info.question}}</h3>
+		<p>Click the Vote button to choose one</p>
+		<table class= 'table table-bordered'>
+			<thead>
+				<tr>
+					<th>Option</th>
+					<th>Current Count of Votes</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>{{poll_info.option1}}</td>
+					<td>{{poll_info.votes1}}</td>
+					<td>
+						<form>
+							<button ng-click = 'voteUp(poll_info,1)'>Vote</button>
+						</form>
+					</td>
+				</tr>
+				<tr>
+					<td>{{poll_info.option2}}</td>
+					<td>{{poll_info.votes2}}</td>
+					<td>
+						<form>
+							<button ng-click = 'voteUp(poll_info,2)'>Vote</button>
+						</form>
+					</td>
+				</tr>
+				<tr>
+					<td>{{poll_info.option3}}</td>
+					<td>{{poll_info.votes3}}</td>
+					<td>
+						<form>
+							<button ng-click = 'voteUp(poll_info,3)'>Vote</button>
+						</form>
+					</td>
+				</tr>
+				<tr>
+					<td>{{poll_info.option4}}</td>
+					<td>{{poll_info.votes4}}</td>
+					<td>
+						<form>
+							<button ng-click = 'voteUp(poll_info,4)'>Vote</button>
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
